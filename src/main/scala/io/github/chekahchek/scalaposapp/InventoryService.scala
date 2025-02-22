@@ -12,7 +12,8 @@ trait InventoryOps[F[_]] {
 
 
 object InventoryService extends InventoryOps[Option] {
-  val aInventory: InventoryItem = InventoryItem("Fruits", "Apple", 100)
+  private val uuid = java.util.UUID.randomUUID
+  val aInventory: InventoryItem = InventoryItem(uuid, "Apple", "Fruits&Co.", "Fruits", 100)
   val inventories: Map[String, InventoryItem] = Map(aInventory.name -> aInventory)
 
   def checkStock(itemName: String): Option[InventoryItem] = inventories.get(itemName)
