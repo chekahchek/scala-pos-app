@@ -1,12 +1,2 @@
-[info] downloading https://repo1.maven.org/maven2/com/github/pureconfig/pureconfig-generic_2.13/0.17.5/pureconfig-generic_2.13-0.17.5.pom
-[info] downloaded https://repo1.maven.org/maven2/com/github/pureconfig/pureconfig-generic_2.13/0.17.5/pureconfig-generic_2.13-0.17.5.pom
-[info] downloading https://repo1.maven.org/maven2/com/github/pureconfig/pureconfig-generic-base_2.13/0.17.5/pureconfig-generic-base_2.13-0.17.5.pom
-[info] downloaded https://repo1.maven.org/maven2/com/github/pureconfig/pureconfig-generic-base_2.13/0.17.5/pureconfig-generic-base_2.13-0.17.5.pom
-[info] downloading https://repo1.maven.org/maven2/com/github/pureconfig/pureconfig-generic-base_2.13/0.17.5/pureconfig-generic-base_2.13-0.17.5.jar
-[info] downloading https://repo1.maven.org/maven2/com/github/pureconfig/pureconfig-generic_2.13/0.17.5/pureconfig-generic_2.13-0.17.5.jar
-[info] downloaded https://repo1.maven.org/maven2/com/github/pureconfig/pureconfig-generic-base_2.13/0.17.5/pureconfig-generic-base_2.13-0.17.5.jar
-[info] downloaded https://repo1.maven.org/maven2/com/github/pureconfig/pureconfig-generic_2.13/0.17.5/pureconfig-generic_2.13-0.17.5.jar
-[info] downloading https://repo1.maven.org/maven2/com/github/pureconfig/pureconfig-generic_2.13/0.17.5/pureconfig-generic_2.13-0.17.5-sources.jar
-[info] downloading https://repo1.maven.org/maven2/com/github/pureconfig/pureconfig-generic-base_2.13/0.17.5/pureconfig-generic-base_2.13-0.17.5-sources.jar
-[info] downloaded https://repo1.maven.org/maven2/com/github/pureconfig/pureconfig-generic_2.13/0.17.5/pureconfig-generic_2.13-0.17.5-sources.jar
-[info] downloaded https://repo1.maven.org/maven2/com/github/pureconfig/pureconfig-generic-base_2.13/0.17.5/pureconfig-generic-base_2.13-0.17.5-sources.jar
+[info] downloading https://repo1.maven.org/maven2/io/circe/circe-literal_2.13/0.14.0-M5/circe-literal_2.13-0.14.0-M5-sources.jar
+[info] downloaded https://repo1.maven.org/maven2/io/circe/circe-literal_2.13/0.14.0-M5/circe-literal_2.13-0.14.0-M5-sources.jar

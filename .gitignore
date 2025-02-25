@@ -1,0 +1,6 @@
+.bsp
+.idea
+target
+project
+src/main/resources/META-INF
+src/main/resources/logback
