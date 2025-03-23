@@ -5,6 +5,7 @@ import skunk._
 import skunk.implicits._
 import skunk.codec.all._
 import cats.effect.{IO, Resource}
+//import java.util.UUID
 
 //trait InventoryOps[F[_]] {
 ////  def addItem(item: InventoryItem) : Unit
@@ -18,9 +19,9 @@ import cats.effect.{IO, Resource}
 class InventoryService(session: Resource[IO, Session[IO]]) {
 
   private val codec: Codec[InventoryItem] =
-    (uuid ~ varchar ~ varchar ~ varchar ~ int4).imap {
-      case id ~ name ~ brand ~ category ~ quantity => InventoryItem(id, name, brand, category, quantity)
-    }(item => item.id ~ item.name ~ item.brand ~ item.category ~ item.quantity)
+    (varchar ~ varchar ~ varchar ~ int4).imap {
+      case name ~ brand ~ category ~ quantity => InventoryItem(name, brand, category, quantity)
+    }(item => item.name ~ item.brand ~ item.category ~ item.quantity)
     
   private val selectByName: Query[String, InventoryItem] =
     sql"""
@@ -34,5 +35,20 @@ class InventoryService(session: Resource[IO, Session[IO]]) {
         s.prepare(selectByName).use {_.option(itemName)}
       }
     }
+
+  private val insertByName: Command[InventoryItem] =
+    sql"""
+       INSERT INTO inventory
+       VALUES ($codec)
+       """.command
+
+  def createStock(name: String,
+                  brand: String,
+                  category: String,
+                  quantity:Integer): IO[String] = for {
+    cmd <- session.use{ s => IO(s.prepare(insertByName))}
+    _ <- cmd.use(c => c.execute(InventoryItem(name, brand, category, quantity)))
+  } yield s"$name has been created"
+
 
 }
