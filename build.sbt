@@ -7,7 +7,6 @@ val Fs2Version = "3.2.10"
 
 lazy val root = (project in file("."))
   .settings(
-    organization := "io.github.chekahchek",
     name := "scala-pos-app",
     version := "0.0.1-SNAPSHOT",
     scalaVersion := "2.13.10",

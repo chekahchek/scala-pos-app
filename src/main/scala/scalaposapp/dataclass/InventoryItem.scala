@@ -1,4 +1,4 @@
-package io.github.chekahchek.scalaposapp.dataclass
+package scalaposapp.dataclass
 
 case class InventoryItem(name: String,
                          brand: String,
