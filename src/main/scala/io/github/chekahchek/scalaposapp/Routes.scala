@@ -13,6 +13,17 @@ class Routes(repository: InventoryService) extends Http4sDsl[IO] {
   object InventoryQueryParamMatcher extends QueryParamDecoderMatcher[String]("inventory")
 
   val routes = HttpRoutes.of[IO] {
+
+      // Create
+      case req @ POST -> Root / "insert" =>
+      for {
+        stock <- req.decodeJson[InventoryItem]
+        results <- repository.createStock(stock.name, stock.brand, stock.category, stock.quantity).flatMap {
+          case Right(_) => Created()
+          case Left(_) => BadRequest()
+        }
+      } yield results
+
       // Read
       case GET -> Root / "quantity" :? InventoryQueryParamMatcher(inventory) =>
         repository.checkStock(inventory).flatMap {
@@ -20,13 +31,23 @@ class Routes(repository: InventoryService) extends Http4sDsl[IO] {
           case _ => NotFound (s"$inventory has no stock")
         }
 
-//     Create
-      case req @ POST -> Root / "insert" =>
-      for {
-        stock <- req.decodeJson[InventoryItem]
-        _ <- repository.createStock(stock.name, stock.brand, stock.category, stock.quantity)
-        resp <- Created()
-      } yield resp
+      // Update
+      case req @ PUT -> Root / itemName =>
+        for {
+          stock <- req.decodeJson[InventoryItem]
+          results <- repository.updateStock(itemName, stock).flatMap{
+            case Right(_) => Ok("Updated")
+            case Left(_) => NotFound()
+          }
+        } yield results
+
+      // Delete
+      case DELETE -> Root / itemName =>
+        repository.deleteStock(itemName).flatMap{
+          case Right(_) => NoContent()
+          case Left(_) => NotFound()
+        }
+
   }
     }
 
