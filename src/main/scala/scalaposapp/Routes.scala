@@ -1,4 +1,4 @@
-package io.github.chekahchek.scalaposapp
+package scalaposapp
 
 import cats.effect.IO
 import org.http4s.dsl.Http4sDsl

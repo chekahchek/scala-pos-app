@@ -1,10 +1,10 @@
-package io.github.chekahchek.scalaposapp
+package scalaposapp
 
 import cats.effect.{IO, Resource}
-import io.github.chekahchek.scalaposapp.dataclass.DbConfig
 import skunk.Session
 import natchez.Trace
 import natchez.Trace.Implicits.noop
+import scalaposapp.dataclass.DbConfig
 
 object Database {
   def pooledSession(config: DbConfig)(implicit trace: Trace[IO]): Resource[IO, Resource[IO, Session[IO]]] = {
@@ -14,7 +14,7 @@ object Database {
       user = config.username,
       password = Some(config.password),
       database = config.database,
-      max = 3
+      max = config.sessions
     )
   }
 
