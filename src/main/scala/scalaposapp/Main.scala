@@ -1,12 +1,12 @@
-package io.github.chekahchek.scalaposapp
+package scalaposapp
 
 import cats.effect._
-import io.github.chekahchek.scalaposapp.dataclass.DbConfig
 import org.http4s.implicits._
 import org.http4s.server.blaze.BlazeServerBuilder
 import pureconfig.ConfigSource
 import pureconfig.generic.auto._
 import Database._
+import scalaposapp.dataclass.DbConfig
 
 object Main extends IOApp {
 
